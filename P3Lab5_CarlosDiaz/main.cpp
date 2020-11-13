@@ -202,19 +202,20 @@ int** multiM(int** m1, int** m2, int f1, int c1, int f2, int c2){
         for(int i=0; i<f1; i++){
             for(int k=0; k<c2; k++){
                 int acum=0;
-                for(int j=0; j<c2; j++){
+                for(int j=0; j<c1; j++){
                     //cout << std::to_string(matrix[i][j]) +"\t";
                     
                         //cout << std::to_string(matrix[i][j]) +"\t";
                         //acum = acum +(m1[i][j] * m2[j+k][i+k]);
-                        acum = acum +(m1[i][k] * m2[k][j]);
-                        cout<< m1[i][k] << "*" << m2[k][j] << " ";
+                        acum = acum +(m1[i][j] * m2[j][k]);
+                        cout << m1[i][j] << "*" << m2[j][k] << " ";
                 }
                 mR[ii][jj] = acum;
                 jj++;
             }
             cout << " " << endl;
             ii++;
+            jj=0;                                                       //se aumenta la fila en la q estaba, y las columnas se hacen a 0 (como si fuera los 2 for)
         }
     } else{
         cout << "No se puede operar";
